@@ -1,3 +1,7 @@
+
+let userWins = 0;
+let computerWins = 0;
+
 const selectors = document.querySelectorAll('.selector');
     selectors.forEach((el) => {
         el.addEventListener('click',
@@ -36,35 +40,35 @@ const selectors = document.querySelectorAll('.selector');
         console.log(`computer picked ${computerPicked}`)
 
         const winner = decideWinner(userPicked, computerPicked)
-        let userWins = 0;
-        let computerWins = 0;
+   
 
         if (winner == 'user') userWins++;
-        else if (winner = 'computer') computerWins++;
+        else if (winner == 'computer') computerWins++;
 
-
+        document.querySelector('#user-result').textContent = userWins;
+        document.querySelector('#computer-result').textContent = computerWins;
 
     }
 
     function decideWinner(userPick, computerPick) {
-        if (userPicked == computerPicked) {
+        if (userPick == computerPick) {
             console.log('Tie')
         } else
-            switch (computerPicked) {
+            switch (computerPick) {
                 case 'rock':
-                    switch (userPicked) {
+                    switch (userPick) {
                         case 'paper': return 'user'
                         case 'scissors': return 'computer'
                     }
                     break;
                 case 'paper':
-                    switch (userPicked) {
+                    switch (userPick) {
                         case 'scissors': return 'user'
                         case 'rock': return 'computer'
                     }
                     break;
                 case 'scissors':
-                    switch (userPicked) {
+                    switch (userPick) {
                         case 'rock': return 'user'
                         case 'paper': return 'computer'
                     }
